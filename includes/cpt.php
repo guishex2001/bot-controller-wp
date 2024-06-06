@@ -43,14 +43,16 @@ function bot_status_meta_box_callback($post) {
             <option value="0" <?php selected($use_schedule, '0'); ?>>No</option>
         </select>
     </p>
-    <p>
-        <label for="bot_start_time">Hora de inicio</label>
-        <input type="time" name="bot_start_time" id="bot_start_time" value="<?php echo esc_attr($start_time); ?>">
-    </p>
-    <p>
-        <label for="bot_end_time">Hora de fin</label>
-        <input type="time" name="bot_end_time" id="bot_end_time" value="<?php echo esc_attr($end_time); ?>">
-    </p>
+    <?php if ($use_schedule == '1') : ?>
+        <p>
+            <label for="bot_start_time">Hora de inicio</label>
+            <input type="time" name="bot_start_time" id="bot_start_time" value="<?php echo esc_attr($start_time); ?>">
+        </p>
+        <p>
+            <label for="bot_end_time">Hora de fin</label>
+            <input type="time" name="bot_end_time" id="bot_end_time" value="<?php echo esc_attr($end_time); ?>">
+        </p>
+    <?php endif; ?>
     <p>
         <label for="bot_qr_link">Enlace al QR</label>
         <input type="url" name="bot_qr_link" id="bot_qr_link" value="<?php echo esc_url($qr_link); ?>" style="width: 100%;">
