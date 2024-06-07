@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Bot Controller
-Description: Controla el estado de un bot de WhatsApp desde WordPress.
+Description: Controla el estado de un chatbot desde la API REST de WordPress.
 Version: 1.0
-Author: Tu Nombre
+Author: guishex2001
 */
 
 // Función para activar el plugin
