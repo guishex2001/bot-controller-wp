@@ -41,7 +41,7 @@ function crear_menu_bot_controller() {
         'bot_controller_menu',
         'mostrar_contenido_bot_controller',
         'dashicons-admin-generic',
-        2
+        
     );
 
     add_submenu_page(
@@ -122,5 +122,27 @@ function mostrar_contenido_bot_controller() {
         }
     </style>
     <?php
+}
+
+// Agregar el filtro para ocultar metaboxes no deseadas
+add_action('add_meta_boxes', 'ocultar_metaboxes_no_deseadas', 99);
+function ocultar_metaboxes_no_deseadas() {
+    global $post_type;
+    
+    if ($post_type == 'bot_status') {
+        // Remover metaboxes no deseadas
+        remove_meta_box('slugdiv', 'bot_status', 'normal');
+        remove_meta_box('authordiv', 'bot_status', 'normal');
+        remove_meta_box('revisionsdiv', 'bot_status', 'normal');
+        remove_meta_box('trackbacksdiv', 'bot_status', 'normal');
+        remove_meta_box('postcustom', 'bot_status', 'normal');
+        remove_meta_box('commentstatusdiv', 'bot_status', 'normal');
+        remove_meta_box('commentsdiv', 'bot_status', 'normal');
+        remove_meta_box('postexcerpt', 'bot_status', 'normal');
+        remove_meta_box('categorydiv', 'bot_status', 'side');
+        remove_meta_box('tagsdiv-post_tag', 'bot_status', 'side');
+        remove_meta_box('slider_revolution_metabox', 'bot_status', 'normal'); // Remover Slider Revolution metabox
+        // Añadir más metaboxes aquí si es necesario
+    }
 }
 ?>
